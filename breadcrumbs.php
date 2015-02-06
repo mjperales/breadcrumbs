@@ -2,25 +2,27 @@
 /**
  * Breadcrumb Lists
  * Allows visitors to quickly navigate back to a previous section or the root page.
+ * Includes custom posts and their taxonomies
  *
  * Adopted from Dimox
  *
  */
-if( ! function_exists( 'tcu_breadcrumbs_list' ) ) :
+if( ! function_exists( 'mjp_breadcrumbs_list' ) ) :
 
-	function tcu_breadcrumbs_list() {
-		$comm_options = get_option( 'cfac_theatre' );
+	function mjp_breadcrumbs_list() {
+		// Change to current theme name
+		$breadcrumbs_options = get_option( 'current_theme_name' );
 
-		if ( 0 == $comm_options['breadcrumb'] && !is_search() ) {
+		if ( 0 == $breadcrumbs_options['breadcrumb'] && !is_search() ) {
 
 			/* === OPTIONS === */
-			$text['home']     = __( 'Home', 'cfac_theatre' ); // text for the 'Home' link
-			$text['category'] = __( 'Archive for %s', 'cfac_theatre' ); // text for a category page
-			$text['tax']      = __( '%s', 'cfac_theatre' ); // text for a tag page
-			$text['search']   = __( 'Search results for: %s', 'cfac_theatre' ); // text for a search results page
-			$text['tag']      = __( 'Posts tagged %s', 'cfac_theatre' ); // text for a tag page
-			$text['author']   = __( 'View all posts by %s', 'cfac_theatre' ); // text for an author page
-			$text['404']      = __( 'Error 404', 'cfac_theatre' ); // text for the 404 page
+			$text['home']     = __( 'Home' ); // text for the 'Home' link
+			$text['category'] = __( 'Archive for %s' ); // text for a category page
+			$text['tax']      = __( ' %s' ); // text for a tag page
+			$text['search']   = __( 'Search results for: %s' ); // text for a search results page
+			$text['tag']      = __( 'Posts tagged %s' ); // text for a tag page
+			$text['author']   = __( 'View all posts by %s' ); // text for an author page
+			$text['404']      = __( 'Error 404' ); // text for the 404 page
 
 			$showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
 			$showOnHome  = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
@@ -195,7 +197,7 @@ if( ! function_exists( 'tcu_breadcrumbs_list' ) ) :
 					if( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
 						echo ' (';
 					}
-					echo $delimiter . sprintf( __( 'Page %s', 'cfac_theatre' ), max( $paged, $page ) );
+					echo $delimiter . sprintf( __( 'Page %s' ), max( $paged, $page ) );
 					if( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
 						echo ')';
 					}
