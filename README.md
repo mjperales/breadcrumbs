@@ -17,23 +17,23 @@ Paste this function into your `functions.php` file. Make sure you change the `op
 Now just paste the code below on each page template that you want breadcrumbs to appear
 
 ``` php
-<?php if (function_exists('mjp_breadcrumbs_list')) mjp_breadcrumbs_list(); ?>
+	<?php if (function_exists('mjp_breadcrumbs_list')) { mjp_breadcrumbs_list(); } ?>
 ```
 
 ### Style
 ``` html
-<div class="breadcrumb-list" xmlns:v="http://rdf.data-vocabulary.org/#">
+	<div class="breadcrumb-list" xmlns:v="http://rdf.data-vocabulary.org/#">
 
-    <span class="breadcrumb" typeof="v:Breadcrumb">
-        <a href="#" property="v:title" rel="v:url">Home</a>
-    </span>
-    <span class="chevron"></span>
-    <span class="breadcrumb" typeof="v:Breadcrumb">
-        <a href="#">Other Page</a>
-    </span>
-    <span class="chevron"></span>
-    <span class="breadcrumb-current">Other Page</span>
+	    <span class="breadcrumb" typeof="v:Breadcrumb">
+	        <a href="#" property="v:title" rel="v:url">Home</a>
+	    </span>
+	    <span class="chevron"></span>
+	    <span class="breadcrumb" typeof="v:Breadcrumb">
+	        <a href="#">Other Page</a>
+	    </span>
+	    <span class="chevron"></span>
+	    <span class="breadcrumb-current">Other Page</span>
 
-</div>
+	</div>
 ```
 
