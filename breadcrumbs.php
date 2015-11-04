@@ -90,6 +90,9 @@ if( ! function_exists( 'mjp_breadcrumbs_list' ) ) :
 						$post_type = get_post_type_object( get_post_type() );
 						$slug      = $post_type->rewrite;
 						printf( $link, $homeLink . '/' . $slug['slug'] . '/', $post_type->labels->singular_name );
+						if ( 0 == $show['current']) {
+							$html_output .= $delimiter;
+						}
 						if( $showCurrent == 1 ) {
 							echo $delimiter . $before . get_the_title() . $after;
 						}
